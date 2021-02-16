@@ -1,0 +1,4 @@
+LIBRARY      "CrystalJavaJNITool.DLL"
+
+EXPORTS
+      GetInstance

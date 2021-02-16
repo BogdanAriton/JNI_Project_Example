@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CrystalJavaJNITool.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CrystalJavaJNITool.h" />
+    <ClInclude Include="CrystalJavaJNITool_common.h" />
+    <ClInclude Include="dbghelp.h" />
+    <ClInclude Include="ICrystalJavaJNITool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CrystalJavaJNITool.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DAA6180E-15C2-4F0B-9BA1-553594B46AFA}</ProjectGuid>
+    <RootNamespace>CrystalJavaJNITool</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(NET_DRIVE)\SRN_SE_BuildUtils\msbuild\SC-CommonProps.props" />
+    <Import Project="$(NET_DRIVE)\SRN_SE_BuildUtils\msbuild\SC-CommonTargets.targets" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(NET_DRIVE)\SRN_SE_BuildUtils\msbuild\SC-CommonProps.props" />
+    <Import Project="$(NET_DRIVE)\SRN_SE_BuildUtils\msbuild\SC-CommonTargets.targets" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(MedSC_DO_bin)</OutDir>
+    <IntDir>$(MedSC_DO_int)$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <OutDir>$(MedSC_DO_D_Lib)</OutDir>
+    <IntDir>$(MedSC_DO_D_int)$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_LIB;WIN_ENV;WIN_PLATFORM;_WINDOWS;O2;NDEBUG;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(REL_SHARE)\include;$(MedSC_DO_D_bin);$(NET_DRIVE)\ComEPR_HSF\Output_Management\ThirdPartyBinaries\JNILibs;$(NET_DRIVE)\MaterialsManagement\Bin;$(NET_DRIVE)\SWF_extern\shs\GSM\BIN;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_SDKs\Windows\v7.0A\include;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_Visual_Studio_10.0\VC\include;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_Visual_Studio_10.0\VC\\include;$(NET_DRIVE)\SWF_extern\oss\JSincludeFiles;$(NET_DRIVE)\SWF_extern\shs\MXS_Server;$(NET_DRIVE)\SWF_extern\tpv\Tibco\ems\7.0\include;$(NET_DRIVE)\SWF_extern\shs\SXM;$(NET_DRIVE)\Architecture\Include;$(NET_DRIVE)\Architecture\DbHandler;$(NET_DRIVE)\Architecture\Persistence;$(NET_DRIVE)\Architecture\Kernel;$(NET_DRIVE)\Architecture\SQLData;$(NET_DRIVE)\Architecture\SecurityArchBridge;$(NET_DRIVE)\Architecture\Source\EnvironmentInfo;$(NET_DRIVE)\Architecture\Source\ArcJobScheduler\admin_desktop\ArchJSGUI;$(NET_DRIVE)\Architecture\Source\ExceptionHandler;$(NET_DRIVE)\Architecture\Source\GenieDataModeler;$(NET_DRIVE)\Architecture\Source\HLicenceTool;$(NET_DRIVE)\Common\Common_Controls\ServerReader;$(NET_DRIVE)\Architecture\Source\HTrace;$(NET_DRIVE)\Architecture\Source\MXSClientWrapper;$(NET_DRIVE)\Architecture\Source\MXSWrapper;$(NET_DRIVE)\Architecture\Source\PerfDataWrapper;$(NET_DRIVE)\Architecture\Source\ServiceHost;$(NET_DRIVE)\Architecture\Source\SoarianAppHost;$(NET_DRIVE)\Architecture\Source\SoarianAppNTService;$(NET_DRIVE)\Architecture\Source\SoarianAuditReader;$(NET_DRIVE)\Architecture\Source\SoarianLicense;$(NET_DRIVE)\Architecture\Source\SoarianMultiVersion;$(NET_DRIVE)\Architecture\Source\Tracer\STrace;$(NET_DRIVE)\Architecture\Source\Tracker\TraceServer;$(NET_DRIVE)\Architecture\Source\ScWrappers;$(NET_DRIVE)\Common\Common_Controls\Com+Installation\ComAdminServices</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AssemblerListingLocation>$(MedSC_DO_D_int)$(TargetName)\</AssemblerListingLocation>
+      <ObjectFileName>$(MedSC_DO_D_int)$(TargetName)\</ObjectFileName>
+      <ProgramDataBaseFileName>$(MedSC_DO_D_bin)pdb\$(TargetName).obj.pdb</ProgramDataBaseFileName>
+      <BrowseInformationFile>$(MedSC_DO_D_int)$(TargetName)\</BrowseInformationFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ArchCommon.lib;HPersistence.lib;HTrace.lib;ExceptionHandler.lib;mxsWrapper.lib;MXSClientWrapper.lib;mxs_api.lib;Ws2_32.lib;PSapi.lib;ArcStaticLibrary.lib;OMSCommon.lib;HKernel.lib;ScWrappers.lib;OMSGroup.lib;WinHTTP.lib;HCrypt.lib;jawt.lib;jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>jawt.lib;jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(NET_DRIVE)\ComEPR_HSF\Output_Management\ThirdPartyBinaries\JNILibs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(MedSC_DO_D_int)$(TargetName)\$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_LIB;WIN_ENV;WIN_PLATFORM;_WINDOWS;O2;NDEBUG;UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MedSC_DO_bin);$(NET_DRIVE)\ComEPR_HSF\Output_Management\ThirdPartyBinaries\JNILibs;$(NET_DRIVE)\MaterialsManagement\Bin;$(NET_DRIVE)\SWF_extern\shs\GSM\BIN;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_SDKs\Windows\v7.0A\include;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_Visual_Studio_10.0\VC\include;$(NET_DRIVE)\SRN_SE_Tools\tpv\microsoft\Microsoft_Visual_Studio_10.0\VC\\include;$(NET_DRIVE)\SWF_extern\oss\JSincludeFiles;$(NET_DRIVE)\SWF_extern\shs\MXS_Server;$(NET_DRIVE)\SWF_extern\tpv\Tibco\ems\7.0\include;$(NET_DRIVE)\SWF_extern\shs\SXM;$(NET_DRIVE)\Architecture\Include;$(NET_DRIVE)\Architecture\DbHandler;$(NET_DRIVE)\Architecture\Persistence;$(NET_DRIVE)\Architecture\Kernel;$(NET_DRIVE)\Architecture\SQLData;$(NET_DRIVE)\Architecture\SecurityArchBridge;$(NET_DRIVE)\Architecture\Source\EnvironmentInfo;$(NET_DRIVE)\Architecture\Source\ArcJobScheduler\admin_desktop\ArchJSGUI;$(NET_DRIVE)\Architecture\Source\ExceptionHandler;$(NET_DRIVE)\Architecture\Source\GenieDataModeler;$(NET_DRIVE)\Architecture\Source\HLicenceTool;$(NET_DRIVE)\Common\Common_Controls\ServerReader;$(NET_DRIVE)\Architecture\Source\HTrace;$(NET_DRIVE)\Architecture\Source\MXSClientWrapper;$(NET_DRIVE)\Architecture\Source\MXSWrapper;$(NET_DRIVE)\Architecture\Source\PerfDataWrapper;$(NET_DRIVE)\Architecture\Source\ServiceHost;$(NET_DRIVE)\Architecture\Source\SoarianAppHost;$(NET_DRIVE)\Architecture\Source\SoarianAppNTService;$(NET_DRIVE)\Architecture\Source\SoarianAuditReader;$(NET_DRIVE)\Architecture\Source\SoarianLicense;$(NET_DRIVE)\Architecture\Source\SoarianMultiVersion;$(NET_DRIVE)\Architecture\Source\Tracer\STrace;$(NET_DRIVE)\Architecture\Source\Tracker\TraceServer;$(NET_DRIVE)\Architecture\Source\ScWrappers;$(NET_DRIVE)\Common\Common_Controls\Com+Installation\ComAdminServices</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AssemblerListingLocation>$(MedSC_DO_int)$(TargetName)\</AssemblerListingLocation>
+      <ObjectFileName>$(MedSC_DO_int)$(TargetName)\</ObjectFileName>
+      <ProgramDataBaseFileName>$(MedSC_DO_bin)pdb\$(TargetName).obj.pdb</ProgramDataBaseFileName>
+      <BrowseInformationFile>$(MedSC_DO_int)$(TargetName)\</BrowseInformationFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ArchCommon.lib;HPersistence.lib;HTrace.lib;ExceptionHandler.lib;mxsWrapper.lib;MXSClientWrapper.lib;mxs_api.lib;Ws2_32.lib;PSapi.lib;ArcStaticLibrary.lib;OMSCommon.lib;HKernel.lib;ScWrappers.lib;OMSGroup.lib;WinHTTP.lib;HCrypt.lib;jawt.lib;jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(NET_DRIVE)\ComEPR_HSF\Output_Management\ThirdPartyBinaries\JNILibs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>jawt.lib;jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(NET_DRIVE)\ComEPR_HSF\Output_Management\ThirdPartyBinaries\JNILibs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(MedSC_DO_int)$(TargetName)\$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
